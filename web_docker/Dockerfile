@@ -1,6 +1,6 @@
 FROM tomcat:8.5-alpine
 
-ADD /workspace/login-page-db/target/account-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/account-1.0-SNAPSHOT.war
+ADD /target/account-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/account.war
 
 CMD ["catalina.sh" , "run"]
 
