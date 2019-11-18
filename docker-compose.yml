@@ -1,0 +1,14 @@
+version: 3
+services:
+  database:
+    build:./db_docker
+    ports:
+     - "3306:3306"
+  web:
+    build:./web_docker
+    ports:
+     - "8009:8080"
+    links:
+     - database
+    
+    
