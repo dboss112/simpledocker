@@ -4,4 +4,4 @@ ADD /target/account-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/account.war
 
 CMD ["catalina.sh" , "run"]
 
-EXPOSE 8090
+EXPOSE 8009
