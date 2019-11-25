@@ -6,8 +6,8 @@ services:
      - MYSQL_ROOT_PASSWORD=swarup
      - jdbc.driverClassName=com.mysql.jdbc.Driver
      - jdbc.url=jdbc:mysql://database/account
-	 - jdbc.username=root
-	 - jdbc.password=swarup
+     - jdbc.username=root
+     - jdbc.password=swarup
     ports:
      - '3306:3306'
   web:
