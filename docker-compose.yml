@@ -1,13 +1,13 @@
 version: "3"
 services:
   database:
-    image: login-db
+    build: /db_docker
     environment:
      - MYSQL_ROOT_PASSWORD=swarup
     ports:
      - "3306:3306"
   web:
-    image: login-page
+    build: .
     ports:
      - "8009:8080"
     links:
