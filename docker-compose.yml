@@ -10,10 +10,6 @@ services:
     build: .
     ports:
      - '8009:8080'
-     - jdbc.driverClassName=com.mysql.jdbc.Driver
-     - jdbc.url=http://geowm97459dns.eastus2.cloudapp.azure.com/:3306/account
-     - jdbc.username=root
-     - jdbc.password=swarup
     links:
      - database
     
