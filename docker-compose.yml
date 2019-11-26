@@ -4,16 +4,16 @@ services:
     build: ./db_docker
     environment:
      - MYSQL_ROOT_PASSWORD=swarup
-     - jdbc.driverClassName=com.mysql.jdbc.Driver
-     - jdbc.url=jdbc:mysql://database/account
-     - jdbc.username=root
-     - jdbc.password=swarup
     ports:
      - '3306:3306'
   web:
     build: .
     ports:
      - '8009:8080'
+     - jdbc.driverClassName=com.mysql.jdbc.Driver
+     - jdbc.url=jdbc:mysql://database/account
+     - jdbc.username=root
+     - jdbc.password=swarup
     links:
      - database
     
