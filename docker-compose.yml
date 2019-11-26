@@ -11,7 +11,7 @@ services:
     ports:
      - '8009:8080'
      - jdbc.driverClassName=com.mysql.jdbc.Driver
-     - jdbc.url=jdbc:mysql://loginpagedb_database_1/account
+     - jdbc.url=jdbc:mysql://localhost:3306/account
      - jdbc.username=root
      - jdbc.password=swarup
     links:
