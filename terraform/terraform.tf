@@ -1,11 +1,11 @@
 provider "aws" {
 
-	  region = "us-east-2"
-	
-	  access_key = "${var.access_key}"
-	
-	  secret_key = "${var.secrate_key}"
-	
+		 region = "us-east-2"
+		
+		 access_key = "${var.access_key}"
+		
+		 secret_key = "${var.secrate_key}"
+
 
 }
 
@@ -13,13 +13,13 @@ provider "aws" {
 
 resource "aws_instance" "backend" {
 
-	  ami= "ami-0c929bde1796e1484"
-	
-	  instance_type= "t2.micro"
-	
-	  key_name= "${var.key_name}"
-	
-	  vpc_security_group_ids = ["${var.sg-id}"]
+		 ami= "ami-0c929bde1796e1484"
+		
+		 instance_type= "t2.micro"
+		
+		 key_name= "${var.key_name}"
+		
+		 vpc_security_group_ids = ["${var.sg-id}"]
 
 }
 
@@ -72,6 +72,7 @@ resource "null_resource" "ansible-main" {
 				ansible-playbook --private-key ${var.pvt_key} -i jenkins-ci.ini ./ansible.yml -u ubuntu -v
 				
 				EOT
+
 		
 		}
 
