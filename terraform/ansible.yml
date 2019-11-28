@@ -7,54 +7,54 @@
 
   tasks:
   - name: Update and upgrade apt packages
-      apt:
-        upgrade: yes
-        update_cache: yes
-        cache_valid_time: 86400 #One day
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day
 
   - name: install JDK 7
-      apt:
-        name: openjdk-7-jdk
-        state: present
+    apt:
+      name: openjdk-7-jdk
+      state: present
 
   - name: add tomcat group
-      group:
-        name: tomcat
+    group:
+      name: tomcat
 
   - name: add tomcat user
-      user:
-        name: tomcat
-        group: tomcat
-        home: /user/share/tomcat
-        createhome: no
+    user:
+      name: tomcat
+      group: tomcat
+      home: /user/share/tomcat
+      createhome: no
 
   - name: create /opt/tomcat directory
-      file:
-        path: /opt/tomcat
-        state: directory
-        mode: 0755
+    file:
+      path: /opt/tomcat
+      state: directory
+      mode: 0755
 
   - name: download & unarchive
-      unarchive:
-        src: http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.49/bin/apache-tomcat-8.5.49.tar.gz
-        dest: /opt/tomcat
-        remote_src: yes
-        extra_opts: [--strip-components=1]
+    unarchive:
+      src: http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.49/bin/apache-tomcat-8.5.49.tar.gz
+      dest: /opt/tomcat
+      remote_src: yes
+      extra_opts: [--strip-components=1]
 
   - name: Change ownership
-      file:
-        path: /opt/tomcat
-        owner: tomcat
-        group: tomcat
-        mode: "u+rwx,g+rx,o=rx"
-        recurse: yes
-        state: directory
+    file:
+      path: /opt/tomcat
+      owner: tomcat
+      group: tomcat
+      mode: "u+rwx,g+rx,o=rx"
+      recurse: yes
+      state: directory
 
   - name: Copy Tomcat service from local to remote
-      copy:
-        src: tomcat.service
-        dest: /etc/systemd/system/
-        mode: 0755
-
+    copy:
+      src: tomcat.service
+      dest: /etc/systemd/system/
+      mode: 0755
+      
   - name: Start and enable Tomcat service
-      command: /opt/tomcat/bin/catalina.sh run
+    command: /opt/tomcat/bin/catalina.sh run
