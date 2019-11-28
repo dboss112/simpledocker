@@ -59,7 +59,7 @@
   - name: Copy war file to webapps
     copy: 
       src: ./*.war
-      dest: /opt/tomcat/apache-tomcat-8.5.49/webapps/account.war
+      dest: /opt/tomcat/webapps/account.war
   
   - name: Start and enable Tomcat service
     command: /opt/tomcat/bin/catalina.sh run
