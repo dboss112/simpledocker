@@ -1,24 +1,24 @@
 variable "key_name" {
 
- default = "AwsKey"
+  default = "AwsKey"
 
 }
 
 variable "access_key" {
 
- default = "AwsKey"
+  default = "AwsKey"
 
 }
 
 variable "secrate_key" {
 
- default = "AwsKey"
+  default = "AwsKey"
 
 }
 
 variable "pvt_key" {
 
- default = "./AwsKey.pem"
+  default = "./AwsKey.pem"
 
 }
 
