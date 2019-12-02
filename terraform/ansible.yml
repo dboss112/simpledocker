@@ -58,7 +58,7 @@
       
   - name: Copy war file to webapps
     copy: 
-      src: *.war
+      src: /*.war
       dest: /opt/tomcat/webapps/account.war
   
   - name: Start and enable Tomcat service
