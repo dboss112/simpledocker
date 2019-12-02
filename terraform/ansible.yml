@@ -57,7 +57,11 @@
       mode: 0755
   
   - name: Start and enable Tomcat service
-    shell: /opt/tomcat/bin/startup.sh
+    systemd:
+      name: tomcat
+      state: started
+      enabled: true
+      daemon_reload: true
 
   - name: Copy war file to webapps
     copy: 
