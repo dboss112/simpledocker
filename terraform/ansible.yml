@@ -12,9 +12,9 @@
       update_cache: yes
       cache_valid_time: 86400 #One day
 
-  - name: install JDK 7
+  - name: install JDK 8
     apt:
-      name: openjdk-7-jdk
+      name: openjdk-8-jdk
       state: present
 
   - name: add tomcat group
