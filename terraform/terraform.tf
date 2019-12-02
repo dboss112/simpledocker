@@ -13,7 +13,7 @@ provider "aws" {
 
 resource "aws_instance" "backend" {
 
-		 ami= "ami-0c929bde1796e1484"
+		 ami= "ami-0d03add87774b12c5"
 		
 		 instance_type= "t2.micro"
 		
