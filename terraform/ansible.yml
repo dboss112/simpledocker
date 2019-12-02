@@ -41,24 +41,24 @@
       remote_src: yes
       extra_opts: [--strip-components=1]
 
-  #- name: Change ownership
-   # file:
-     # path: /opt/tomcat
-     # owner: tomcat
-     # group: tomcat
-     # mode: "u+rwx,g+rx,o=rx"
-    #  recurse: yes
-   #   state: directory
+  - name: Change ownership
+    file:
+      path: /opt/tomcat
+      owner: tomcat
+      group: tomcat
+      mode: "u+rwx,g+rx,o=rx"
+      recurse: yes
+      state: directory
 
-  #- name: Copy Tomcat service from local to remote
-   # copy:
-    #  src: tomcat.service
-     # dest: /etc/systemd/system/
-     # mode: 0755
+  - name: Copy Tomcat service from local to remote
+    copy:
+      src: tomcat.service
+      dest: /etc/systemd/system/
+      mode: 0755
       
   - name: Copy war file to webapps
     copy: 
-      src: ./*.war
+      src: *.war
       dest: /opt/tomcat/webapps/account.war
   
   - name: Start and enable Tomcat service
