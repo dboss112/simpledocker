@@ -72,7 +72,7 @@ node{
       dir(project_path_1){
         sh 'pwd'
         sh 'terraform init'
-        sh 'terraform apply -var="***************" -var="secrate_key=***************" -input=false -auto-approve'
+        sh 'terraform apply -var="access_key=***************" -var="secrate_key=***************" -input=false -auto-approve'
        }
      }
     
