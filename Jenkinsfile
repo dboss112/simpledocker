@@ -83,7 +83,7 @@ node{
         def project_path_2 = "./terraform"
         dir(project_path_2){
         sh 'pwd'
-        sh 'terraform destroy -var="access_key=***********" -var="secrate_key=**************" -input=false -auto-approve'
+        sh 'terraform destroy -var="access_key=**************" -var="secrate_key=**************" -input=false -auto-approve'
        }
       sh 'docker-compose down'
     }
