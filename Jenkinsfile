@@ -33,7 +33,7 @@ node{
     
     stage('Jfrog Artifact archive')
     {
-        script{
+        script {
             rtUpload (
                  serverId: 'Artifactory',
                  spec: '''{
@@ -43,7 +43,7 @@ node{
                           "target": "login-page-repo"
                      }
                 ]
-            }''',
+            }'''
            )
           }
         
@@ -68,11 +68,11 @@ node{
     
     stage('Terraform Production Env')
     {
-        def project_path_1 = "./terraform"
-      dir(project_path_1){
-        sh 'pwd'
-        sh 'terraform init'
-        sh 'terraform apply -var="access_key=***************" -var="secrate_key=***************" -input=false -auto-approve'
+          def project_path_1 = "./terraform"
+          dir(project_path_1){
+            sh 'pwd'
+            sh 'terraform init'
+            sh 'terraform apply -var="access_key=***************" -var="secrate_key=***************" -input=false -auto-approve'
        }
      }
     
@@ -80,12 +80,13 @@ node{
     stage('Destroy Env')
     {
         sh 'sleep 4m'
+        
         def project_path_2 = "./terraform"
         dir(project_path_2){
-        sh 'pwd'
-        sh 'terraform destroy -var="access_key=**************" -var="secrate_key=**************" -input=false -auto-approve'
-       }
-      sh 'docker-compose down'
+           sh 'terraform destroy -var="access_key=**************" -var="secrate_key=**************" -input=false -auto-approve'
+        }
+       
+        sh 'docker-compose down'
     }
     
 }
